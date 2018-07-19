@@ -1,0 +1,27 @@
+<mvc:View controllerName="sap.ui5con.lib.reusablelibrary1.components.reusableTable.controller.Main" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" height="100%">
+	<Table id="table" width="auto" items="{ path: 'bindingModel>/sEntityPath'}"
+		noDataText="{worklistView>/tableNoDataText}" busyIndicatorDelay="{worklistView>/tableBusyDelay}" growing="true" growingScrollToLoad="true"
+		updateFinished="onUpdateFinished">
+		<columns>
+			<Column id="nameColumn" visible="{mainViewModel>/bIsVisibleElementOrderID}"> 
+				<Text text="Customer Id" id="nameColumnTitle"/>
+			</Column>
+			<Column id="dateColumn" visible="{mainViewModel>/bIsVisibleElementOrderDate}">
+				<Text text="Order date" id="dateColumnTitle"/>
+			</Column>
+			<Column id="unitNumberColumn" hAlign="End" visible="{mainViewModel>/sPathOrderDetails}">
+				<Text text="Order Details" id="unitNumberColumnTitle"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem type="Navigation" press="onPress">
+				<cells>
+					<ObjectIdentifier title="{bindingModel>/sPathOrderID}"/>
+					<ObjectIdentifier title="{bindingModel>/sPathOrderDate}"/>
+					<ObjectIdentifier title="{bindingModel>/sPathOrderDetails}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
